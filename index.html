@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Beautysalon Harmonie | Professionelle Schönheitspflege in Hannover</title>
+    <meta name="description"
+        content="Beautysalon Harmonie in Hannover - Friseur, Maniküre, Pediküre, Kosmetik, Massagen. ✓ Professionelle Meister ✓ Premium Produkte ✓ Faire Preise. Jetzt Termin vereinbaren!">
+    <meta name="keywords"
+        content="Beautysalon Hannover, Friseur Hannover, Maniküre, Pediküre, Kosmetik, Massage, Wimpernverlängerung, Augenbrauen, Schönheitssalon">
+    <meta name="author" content="Beautysalon Harmonie">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://harmonie-salon.de">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Beautysalon Harmonie | Professionelle Schönheitspflege in Hannover">
+    <meta property="og:description"
+        content="Ihr Premium Beautysalon in Hannover. Friseur, Maniküre, Kosmetik und mehr. Buchen Sie jetzt online!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harmonie-salon.de">
+    <meta property="og:image" content="https://harmonie-salon.de/images/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Beautysalon Harmonie",
+      "image": "https://harmonie-salon.de/images/salon.jpg",
+      "description": "Premium Beautysalon in Hannover mit professionellen Dienstleistungen",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Musterstraße 10",
+        "addressLocality": "Hannover",
+        "addressRegion": "Niedersachsen",
+        "postalCode": "30159",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 52.3759,
+        "longitude": 9.7320
+      },
+      "url": "https://harmonie-salon.de",
+      "telephone": "+49-511-123456",
+      "email": "info@harmonie-salon.de",
+      "priceRange": "€€",
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "156"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #d4af37;
+            --accent: #8b7355;
+            --light: #f8f6f3;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary);
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Luxury Navigation */
+        .nav-main {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        /* Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 28px;
+            height: 28px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 100;
+        }
+
+        .burger-menu span {
+            width: 28px;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 50;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu a {
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin: 20px 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+
+            .nav-links-desktop {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
+        .nav-link-main {
+            position: relative;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-main::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link-main:hover {
+            color: var(--secondary);
+        }
+
+        .nav-link-main:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 115, 85, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.1;
+            font-weight: 600;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Decorative Lines */
+        .deco-line {
+            width: 60px;
+            height: 1px;
+            background: var(--secondary);
+        }
+
+        .deco-line-vertical {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, var(--secondary), transparent);
+        }
+
+        /* Luxury Buttons */
+        .btn-luxury {
+            position: relative;
+            padding: 18px 48px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .btn-luxury:hover {
+            color: var(--primary);
+        }
+
+        .btn-luxury:hover::before {
+            left: 0;
+        }
+
+        .btn-luxury-filled {
+            background: var(--secondary);
+            color: var(--primary);
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-luxury-filled::before {
+            background: var(--primary);
+        }
+
+        .btn-luxury-filled:hover {
+            color: var(--secondary);
+        }
+
+        /* Service Cards */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card-luxury {
+            background: var(--white);
+            padding: 60px 40px;
+            position: relative;
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .service-card-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--light);
+            transition: width 0.5s ease;
+            z-index: 0;
+        }
+
+        .service-card-luxury:hover::before {
+            width: 100%;
+        }
+
+        .service-card-luxury>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-number {
+            font-size: 14px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--secondary);
+            margin-bottom: 24px;
+        }
+
+        .service-title-luxury {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .service-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 100px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 300;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Price Tables */
+        .price-table {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: var(--white);
+        }
+
+        .price-header {
+            padding: 40px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            background: var(--light);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        .price-item:hover {
+            background: rgba(248, 246, 243, 0.5);
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        .price-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--light);
+            padding: 50px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            font-size: 80px;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            font-style: italic;
+            color: var(--primary);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: var(--light);
+        }
+
+        .gallery-item {
+            position: relative;
+            padding-bottom: 100%;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            color: var(--secondary);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Contact Form */
+        .form-luxury {
+            background: var(--light);
+            padding: 80px;
+        }
+
+        .input-luxury {
+            width: 100%;
+            padding: 20px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.2);
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--primary);
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-luxury:focus {
+            outline: none;
+            border-bottom-color: var(--secondary);
+        }
+
+        .input-luxury::placeholder {
+            color: rgba(26, 26, 26, 0.4);
+            font-weight: 300;
+        }
+
+        textarea.input-luxury {
+            resize: none;
+            padding-top: 20px;
+        }
+
+        /* Parallax Effect */
+        .parallax-section {
+            position: relative;
+            height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)),
+                linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        }
+
+        /* Section Spacing */
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-main .max-w-7xl {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .hero-section {
+                height: auto;
+                min-height: 600px;
+                padding: 120px 0 80px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .form-luxury {
+                padding: 40px 24px;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .stat-number {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav-main fixed w-full top-0 z-50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="deco-line"></div>
+                    <a href="#" class="text-2xl font-semibold tracking-tight"
+                        style="font-family: 'Playfair Display', serif;">
+                        HARMONIE
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-12 nav-links-desktop">
+                    <a href="#leistungen" class="nav-link-main">Leistungen</a>
+                    <a href="#preise" class="nav-link-main">Preise</a>
+                    <a href="#galerie" class="nav-link-main">Galerie</a>
+                    <a href="#kontakt" class="nav-link-main">Kontakt</a>
+                </div>
+
+                <!-- Phone (Desktop) -->
+                <a href="tel:+49511123456" class="hidden md:block text-sm font-semibold tracking-wider"
+                    style="color: var(--secondary);">
+                    +49 (511) 123-456
+                </a>
+
+                <!-- Burger Menu Button (Mobile) -->
+                <button class="burger-menu" id="burgerBtn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#leistungen" class="mobile-menu-link">Leistungen</a>
+            <a href="#preise" class="mobile-menu-link">Preise</a>
+            <a href="#galerie" class="mobile-menu-link">Galerie</a>
+            <a href="#kontakt" class="mobile-menu-link">Kontakt</a>
+            <a href="tel:+49511123456" class="mobile-menu-link" style="color: var(--secondary); margin-top: 40px;">
+                Anrufen
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex items-center justify-center">
+        <div class="hero-overlay"></div>
+        <div class="hero-content text-center px-6">
+            <div class="deco-line mx-auto mb-8 fade-in-up"></div>
+            <p class="hero-subtitle text-white mb-6 fade-in-up delay-1">Beautysalon in Hannover</p>
+            <h1 class="hero-title text-white mb-8 fade-in-up delay-2">
+                Zeitlose<br />Schönheit
+            </h1>
+            <p class="text-white text-lg mb-12 max-w-2xl mx-auto opacity-80 font-light fade-in-up delay-3">
+                Erleben Sie erstklassige Schönheitspflege in einer Atmosphäre von Eleganz und Professionalität
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 fade-in-up delay-4">
+                <a href="#kontakt" class="btn-luxury-filled btn-luxury">
+                    Termin vereinbaren
+                </a>
+                <a href="#leistungen" class="btn-luxury">
+                    Unser Angebot
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <div class="deco-line mb-8"></div>
+                    <h2 class="text-5xl md:text-6xl mb-8 leading-tight">Exzellenz in jedem Detail</h2>
+                    <p class="text-lg mb-6 text-gray-600 font-light leading-relaxed">
+                        Seit über einem Jahrzehnt steht Beautysalon Harmonie für höchste Qualität in der
+                        Schönheitspflege. Unser Team aus erfahrenen Meistern verbindet traditionelle Handwerkskunst mit
+                        modernsten Techniken.
+                    </p>
+                    <p class="text-lg text-gray-600 font-light leading-relaxed">
+                        In unserem Salon im Herzen von Hannover schaffen wir eine Oase der Entspannung, in der Sie sich
+                        rundum wohlfühlen und Ihre natürliche Schönheit zum Strahlen bringen können.
+                    </p>
+                </div>
+                <div class="relative">
+                    <!-- СЮДА ДОБАВЬТЕ ФОТО САЛОНА -->
+                    <!-- Рекомендуемый размер: 800x800px, формат: JPG или WebP -->
+                    <img src="images/salon-interior.jpg" alt="Elegantes Interieur des Beautysalon Harmonie"
+                        class="w-full aspect-square object-cover" loading="lazy">
+                    <!-- Если нет фото, оставьте этот код: -->
+                    <!-- <div class="aspect-square bg-gradient-to-br from-gray-100 to-gray-200"></div> -->
+                    <div class="absolute -bottom-12 -left-12 w-32 h-32 border border-secondary opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="leistungen" class="section-padding bg-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
+            <div class="max-w-3xl">
+                <div class="deco-line mb-8"></div>
+                <h2 class="text-5xl md:text-6xl mb-6">Unsere Leistungen</h2>
+                <p class="text-xl text-gray-600 font-light">
+                    Von klassischer Friseurkunst bis zu modernster Kosmetik – wir bieten Ihnen ein umfassendes Spektrum
+                    an Premium-Dienstleistungen.
+                </p>
+            </div>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card-luxury">
+                <div class="service-number">01</div>
+                <h3 class="service-title-luxury">Friseurkunst</h3>
+                <p class="service-desc">
+                    Meisterhaftes Handwerk trifft auf individuelle Beratung. Von klassischen Schnitten bis zu
+                    avantgardistischen Stylings – wir setzen Ihre Vision in Szene.
+                </p>
+            </div>
+
+            <div class="service-card-luxury">
+                <div class="service-number">02</div>
+                <h3 class="service-title-luxury">Nail Design</h3>
+                <p class="service-desc">
+                    Perfekte Maniküre und Pediküre mit höchster Präzision. Klassisch elegant oder kreativ ausdrucksstark
+                    – Ihre Hände verdienen das Beste.
+                </p>
+            </div>
+
+            <div class="service-card-luxury">
+                <div class="service-number">03</div>
+                <h3 class="service-title-luxury">Kosmetische Behandlungen</h3>
+                <p class="service-desc">
+                    Professionelle Hautpflege mit Premium-Produkten. Individuelle Behandlungen für strahlend schöne Haut
+                    und langanhaltende Ergebnisse.
+                </p>
+            </div>
+
+            <div class="service-card-luxury">
+                <div class="service-number">04</div>
+                <h3 class="service-title-luxury">Augenbrauen & Wimpern</h3>
+                <p class="service-desc">
+                    Der perfekte Rahmen für Ihre Augen. Von präziser Architektur bis zu professioneller Verlängerung –
+                    für einen ausdrucksstarken Blick.
+                </p>
+            </div>
+
+            <div class="service-card-luxury">
+                <div class="service-number">05</div>
+                <h3 class="service-title-luxury">Wellness & SPA</h3>
+                <p class="service-desc">
+                    Entspannung für Körper und Geist. Professionelle Massagen und SPA-Behandlungen in exklusiver
+                    Atmosphäre.
+                </p>
+            </div>
+
+            <div class="service-card-luxury">
+                <div class="service-number">06</div>
+                <h3 class="service-title-luxury">Make-up Artistry</h3>
+                <p class="service-desc">
+                    Professionelles Make-up für jeden Anlass. Von natürlich bis glamourös – unsere Visagisten setzen
+                    Ihre Schönheit perfekt in Szene.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                <div class="stat-item">
+                    <div class="stat-number">12+</div>
+                    <div class="stat-label">Jahre Erfahrung</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Meister-Stylisten</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2.5K+</div>
+                    <div class="stat-label">Zufriedene Kunden</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8</div>
+                    <div class="stat-label">Durchschnittsbewertung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="preise" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mb-20">
+                <div class="deco-line mb-8"></div>
+                <h2 class="text-5xl md:text-6xl mb-6">Preisliste</h2>
+                <p class="text-xl text-gray-600 font-light">
+                    Transparente Preise für erstklassige Dienstleistungen. Alle Preise verstehen sich als Startpreise
+                    und können je nach Aufwand variieren.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Hair Services -->
+                <div class="price-table">
+                    <div class="price-header">
+                        <h3 class="text-2xl font-semibold mb-2">Friseur</h3>
+                        <p class="text-sm text-gray-600 font-light">Premium Haarkunst</p>
+                    </div>
+                    <div>
+                        <div class="price-item">
+                            <span class="price-name">Damenhaarschnitt</span>
+                            <span class="price-value">ab 65€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Herrenhaarschnitt</span>
+                            <span class="price-value">ab 45€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Färbung & Strähnen</span>
+                            <span class="price-value">ab 85€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Balayage / Ombré</span>
+                            <span class="price-value">ab 120€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Styling / Föhnen</span>
+                            <span class="price-value">ab 35€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Keratin-Behandlung</span>
+                            <span class="price-value">ab 150€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nail Services -->
+                <div class="price-table">
+                    <div class="price-header">
+                        <h3 class="text-2xl font-semibold mb-2">Nail Design</h3>
+                        <p class="text-sm text-gray-600 font-light">Perfekte Maniküre</p>
+                    </div>
+                    <div>
+                        <div class="price-item">
+                            <span class="price-name">Klassische Maniküre</span>
+                            <span class="price-value">ab 45€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Apparative Pediküre</span>
+                            <span class="price-value">ab 55€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Gel-Modellage</span>
+                            <span class="price-value">ab 65€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Nagelverlängerung</span>
+                            <span class="price-value">ab 75€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Nail Art (pro Nagel)</span>
+                            <span class="price-value">ab 5€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Maniküre & Pediküre Paket</span>
+                            <span class="price-value">ab 90€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beauty Services -->
+                <div class="price-table">
+                    <div class="price-header">
+                        <h3 class="text-2xl font-semibold mb-2">Kosmetik</h3>
+                        <p class="text-sm text-gray-600 font-light">Professionelle Hautpflege</p>
+                    </div>
+                    <div>
+                        <div class="price-item">
+                            <span class="price-name">Klassische Gesichtsbehandlung</span>
+                            <span class="price-value">ab 75€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Anti-Aging Behandlung</span>
+                            <span class="price-value">ab 95€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Tiefenreinigung</span>
+                            <span class="price-value">ab 85€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Microdermabrasion</span>
+                            <span class="price-value">ab 110€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Gesichtsmassage</span>
+                            <span class="price-value">ab 45€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Spezial-Peelings</span>
+                            <span class="price-value">ab 65€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lashes & Brows -->
+                <div class="price-table">
+                    <div class="price-header">
+                        <h3 class="text-2xl font-semibold mb-2">Augen</h3>
+                        <p class="text-sm text-gray-600 font-light">Wimpern & Augenbrauen</p>
+                    </div>
+                    <div>
+                        <div class="price-item">
+                            <span class="price-name">Augenbrauen-Architektur</span>
+                            <span class="price-value">ab 35€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Augenbrauenfärbung</span>
+                            <span class="price-value">ab 25€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Wimpernverlängerung Classic</span>
+                            <span class="price-value">ab 85€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Wimpernverlängerung Volume</span>
+                            <span class="price-value">ab 110€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Wimpernlifting</span>
+                            <span class="price-value">ab 65€</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="price-name">Augenbrauen Laminierung</span>
+                            <span class="price-value">ab 55€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="parallax-section flex items-center justify-center">
+        <div class="text-center px-6">
+            <div class="deco-line mx-auto mb-8" style="background: var(--secondary);"></div>
+            <h2 class="text-4xl md:text-5xl text-white mb-6 font-light">
+                Erleben Sie Luxus<br />und Professionalität
+            </h2>
+            <a href="#kontakt" class="btn-luxury mt-8 inline-block"
+                style="color: var(--secondary); border-color: var(--secondary);">
+                Jetzt Termin buchen
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="max-w-3xl mb-20">
+                <div class="deco-line mb-8"></div>
+                <h2 class="text-5xl md:text-6xl mb-6">Kundenstimmen</h2>
+                <p class="text-xl text-gray-600 font-light">
+                    Das Vertrauen unserer Kunden ist unser größter Erfolg.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        Ein außergewöhnliches Erlebnis. Die Atmosphäre ist elegant, das Team professionell und die
+                        Ergebnisse einfach perfekt. Mein absoluter Lieblingssalon.
+                    </p>
+                    <div class="testimonial-author">Sarah Müller</div>
+                    <div class="text-xs text-gray-500 mt-1">Stammkundin seit 2021</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        Höchste Qualität in jedem Detail. Von der Beratung bis zur Ausführung – hier wird Handwerk auf
+                        höchstem Niveau zelebriert. Absolut empfehlenswert.
+                    </p>
+                    <div class="testimonial-author">Dr. Anna Schmidt</div>
+                    <div class="text-xs text-gray-500 mt-1">Google Bewertung</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">
+                        Ich habe viele Salons ausprobiert, aber Harmonie ist in einer eigenen Liga. Die Meister
+                        verstehen ihr Handwerk und schaffen es jedes Mal, meine Erwartungen zu übertreffen.
+                    </p>
+                    <div class="testimonial-author">Julia Weber</div>
+                    <div class="text-xs text-gray-500 mt-1">Facebook Bewertung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="galerie" class="section-padding bg-light">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 mb-20">
+            <div class="max-w-3xl">
+                <div class="deco-line mb-8"></div>
+                <h2 class="text-5xl md:text-6xl mb-6">Portfolio</h2>
+                <p class="text-xl text-gray-600 font-light">
+                    Einblicke in unsere Arbeit – Jedes Projekt ein Unikat.
+                </p>
+            </div>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- ФОТО 1: Работа с волосами -->
+            <!-- Рекомендуемый размер: 600x600px -->
+            <div class="gallery-item">
+                <img src="images/gallery/hair-styling.jpg" alt="Professionelles Hair Styling im Salon Harmonie"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-text">Hair Design</span>
+                </div>
+            </div>
+
+            <!-- ФОТО 2: Маникюр -->
+            <div class="gallery-item">
+                <img src="images/gallery/nail-art.jpg" alt="Luxuriöse Maniküre und Nail Art"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-text">Nail Art</span>
+                </div>
+            </div>
+
+            <!-- ФОТО 3: Макияж -->
+            <div class="gallery-item">
+                <img src="images/gallery/makeup.jpg" alt="Professionelles Make-up"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-text">Make-up</span>
+                </div>
+            </div>
+
+            <!-- ФОТО 4: Стайлинг -->
+            <div class="gallery-item">
+                <img src="images/gallery/styling.jpg" alt="Elegantes Haar-Styling"
+                    class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+                <div class="gallery-overlay">
+                    <span class="gallery-text">Styling</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <p class="text-gray-600 mb-4">Folgen Sie uns für tägliche Inspiration</p>
+            <a href="https://instagram.com/harmonie_salon" target="_blank" rel="noopener noreferrer"
+                class="inline-block" style="color: var(--secondary); font-weight: 500;">
+                @harmonie_salon auf Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="kontakt" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-2 gap-20">
+                <div>
+                    <div class="deco-line mb-8"></div>
+                    <h2 class="text-5xl md:text-6xl mb-12">Kontakt</h2>
+
+                    <div class="space-y-10">
+                        <div>
+                            <div class="text-sm uppercase tracking-wider mb-3" style="color: var(--secondary);">Adresse
+                            </div>
+                            <address class="not-italic text-lg font-light text-gray-700">
+                                Musterstraße 10<br />
+                                30159 Hannover
+                            </address>
+                        </div>
+
+                        <div>
+                            <div class="text-sm uppercase tracking-wider mb-3" style="color: var(--secondary);">Telefon
+                            </div>
+                            <a href="tel:+49511123456"
+                                class="text-lg font-light text-gray-700 hover:text-secondary transition">
+                                +49 (511) 123-456
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="text-sm uppercase tracking-wider mb-3" style="color: var(--secondary);">E-Mail
+                            </div>
+                            <a href="/cdn-cgi/l/email-protection#2e474048416e464f5c434140474b035d4f424140004a4b"
+                                class="text-lg font-light text-gray-700 hover:text-secondary transition">
+                                <span class="__cf_email__"
+                                    data-cfemail="472e292128072f26352a28292e226a34262b2829692322">[email&#160;protected]</span>
+                            </a>
+                        </div>
+
+                        <div>
+                            <div class="text-sm uppercase tracking-wider mb-3" style="color: var(--secondary);">
+                                Öffnungszeiten</div>
+                            <div class="text-lg font-light text-gray-700">
+                                Montag – Sonntag<br />
+                                09:00 – 21:00 Uhr
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-luxury">
+                    <h3 class="text-3xl mb-8 font-semibold">Termin anfragen</h3>
+                    <form id="booking-form" class="space-y-8">
+                        <div>
+                            <input type="text" name="name" placeholder="Ihr Name" class="input-luxury" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="E-Mail Adresse" class="input-luxury" required>
+                        </div>
+                        <div>
+                            <input type="tel" name="phone" placeholder="Telefonnummer" class="input-luxury" required>
+                        </div>
+                        <div>
+                            <select name="service" class="input-luxury" required>
+                                <option value="">Gewünschte Leistung</option>
+                                <option value="Friseur">Friseur</option>
+                                <option value="Nail Design">Nail Design</option>
+                                <option value="Kosmetik">Kosmetik</option>
+                                <option value="Augen">Augenbrauen & Wimpern</option>
+                                <option value="SPA">Wellness & SPA</option>
+                                <option value="Make-up">Make-up</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea name="message" placeholder="Ihre Nachricht" rows="4"
+                                class="input-luxury"></textarea>
+                        </div>
+
+                        <div id="booking-status" class="text-sm mt-2" style="min-height: 1.5em;"></div>
+
+                        <button type="submit" class="btn-luxury-filled btn-luxury w-full">
+                            Anfrage senden
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16" style="background: #0f0f0f;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <h3 class="text-2xl mb-6 font-semibold text-white" style="font-family: 'Playfair Display', serif;">
+                        HARMONIE</h3>
+                    <p class="text-sm font-light leading-relaxed" style="color: #b0b0b0;">
+                        Ihr Premium Beautysalon für zeitlose Schönheit im Herzen von Hannover.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm uppercase tracking-wider mb-6 text-white" style="color: var(--secondary);">
+                        Navigation</h4>
+                    <nav class="space-y-3">
+                        <a href="#leistungen" class="block text-sm font-light hover:text-white transition"
+                            style="color: #b0b0b0;">Leistungen</a>
+                        <a href="#preise" class="block text-sm font-light hover:text-white transition"
+                            style="color: #b0b0b0;">Preise</a>
+                        <a href="#galerie" class="block text-sm font-light hover:text-white transition"
+                            style="color: #b0b0b0;">Galerie</a>
+                        <a href="#kontakt" class="block text-sm font-light hover:text-white transition"
+                            style="color: #b0b0b0;">Kontakt</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h4 class="text-sm uppercase tracking-wider mb-6 text-white" style="color: var(--secondary);">
+                        Kontakt</h4>
+                    <address class="not-italic space-y-3 text-sm font-light" style="color: #b0b0b0;">
+                        <p>Musterstraße 10<br />30159 Hannover</p>
+                        <p><a href="tel:+49511123456" class="hover:text-white transition">+49 (511) 123-456</a></p>
+                        <p><a href="/cdn-cgi/l/email-protection#422b2c242d022a23302f2d2c2b276f31232e2d2c6c2627"
+                                class="hover:text-white transition"><span class="__cf_email__"
+                                    data-cfemail="3a53545c557a525b48575554535f17495b565554145e5f">[email&#160;protected]</span></a>
+                        </p>
+                    </address>
+                </div>
+
+                <div>
+                    <h4 class="text-sm uppercase tracking-wider mb-6 text-white" style="color: var(--secondary);">
+                        Öffnungszeiten</h4>
+                    <div class="text-sm font-light" style="color: #b0b0b0;">
+                        <p class="mb-2">Montag – Sonntag</p>
+                        <p>09:00 – 21:00 Uhr</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-light"
+                style="border-color: rgba(255, 255, 255, 0.1); color: #888;">
+                <p>&copy; 2025 Beautysalon Harmonie. Alle Rechte vorbehalten.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="datenschutz.html" class="hover:text-white transition" style="color: #888;">Datenschutz</a>
+                    <a href="impressum.html" class="hover:text-white transition" style="color: #888;">Impressum</a>
+                    <a href="agb.html" class="hover:text-white transition" style="color: #888;">AGB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger Menu Toggle
+        const burgerBtn = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        burgerBtn.addEventListener('click', () => {
+            burgerBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking on a link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+    <!-- Supabase JS (UMD) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+    <script>
+        // Настройки Supabase (оставляем, чтобы писать в таблицу)
+        const supabaseUrl = 'https://svikvxtpxktknlzkbeky.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2aWt2eHRweGt0a25semtiZWt5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMDk3MDcsImV4cCI6MjA3ODg4NTcwN30.v80M7sjfw90bBPuXH8Q-q714zOra2w0MOirbS1H5O7A';
+
+        const client = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('booking-form');
+            const statusEl = document.getElementById('booking-status');
+
+            if (!form) {
+                console.error('Form #booking-form not found');
+                return;
+            }
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                statusEl.textContent = 'Anfrage wird gesendet...';
+                statusEl.style.color = '#555';
+
+                const formData = new FormData(form);
+
+                const payload = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    service: formData.get('service'),
+                    message: formData.get('message'),
+                    source_page: window.location.href,
+                };
+
+                console.log('Sending payload to Supabase:', payload);
+
+                try {
+                    // 1) Сохраняем запись в таблицу appointments
+                    const { error } = await client
+                        .from('appointments')
+                        .insert([payload]);
+
+                    if (error) {
+                        console.error('Supabase insert error:', error);
+                        statusEl.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.';
+                        statusEl.style.color = 'red';
+                        return;
+                    }
+
+                    // 2) Вызываем edge-функцию ЧЕРЕЗ functions.supabase.co БЕЗ apikey
+                    const fnRes = await fetch(
+                        'https://svikvxtpxktknlzkbeky.functions.supabase.co/send-booking-email',
+                        {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(payload),
+                        }
+                    );
+
+                    let fnData = null;
+                    try {
+                        fnData = await fnRes.json();
+                    } catch (e) {
+                        console.warn('Cannot parse function response as JSON', e);
+                    }
+
+                    console.log('Function response:', fnRes.status, fnData);
+
+                    if (!fnRes.ok) {
+                        console.error('Function error status', fnRes.status, fnData);
+                        // Для клиента всё равно показываем "заявка отправлена", чтобы его не грузить
+                    }
+
+                    statusEl.textContent = 'Vielen Dank! Ihre Anfrage wurde gesendet.';
+                    statusEl.style.color = 'green';
+                    form.reset();
+                } catch (e) {
+                    console.error('Unexpected error:', e);
+                    statusEl.textContent = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.';
+                    statusEl.style.color = 'red';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
